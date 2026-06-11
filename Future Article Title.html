@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARDP News & Blog</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(to right,#001f54,#b22234);
+    text-align:center;
+    padding:60px 20px;
+    border-bottom:5px solid gold;
+}
+
+header h1{
+    font-size:3rem;
+    text-transform:uppercase;
+}
+
+header p{
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+nav{
+    background:#111827;
+    padding:15px;
+    text-align:center;
+    border-bottom:2px solid gold;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:gold;
+}
+
+.page-title{
+    text-align:center;
+    padding:50px 20px 20px;
+}
+
+.page-title h2{
+    color:gold;
+    font-size:2.5rem;
+}
+
+.page-title p{
+    max-width:800px;
+    margin:15px auto;
+}
+
+.blog-grid{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.blog-card{
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,0.08);
+    transition:.3s;
+    box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+
+.blog-card:hover{
+    transform:translateY(-8px);
+    border-color:gold;
+    box-shadow:0 0 25px rgba(255,215,0,.4);
+}
+
+.blog-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-bottom:2px solid gold;
+}
+
+.blog-content{
+    padding:25px;
+}
+
+.blog-date{
+    color:gold;
+    font-size:.9rem;
+    margin-bottom:10px;
+}
+
+.blog-content h3{
+    color:gold;
+    margin-bottom:15px;
+}
+
+.blog-content p{
+    color:#d1d5db;
+    margin-bottom:20px;
+}
+
+.read-more{
+    display:inline-block;
+    background:gold;
+    color:black;
+    text-decoration:none;
+    padding:12px 24px;
+    border-radius:50px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.read-more:hover{
+    background:white;
+    transform:scale(1.05);
+}
+
+.featured{
+    max-width:1200px;
+    margin:50px auto;
+    padding:40px;
+    background:#111827;
+    border:2px solid rgba(255,215,0,.3);
+    border-radius:25px;
+    text-align:center;
+}
+
+.featured h2{
+    color:gold;
+    margin-bottom:15px;
+}
+
+footer{
+    background:black;
+    text-align:center;
+    padding:35px;
+    margin-top:60px;
+    border-top:3px solid gold;
+}
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:2rem;
+    }
+
+    .blog-grid{
+        grid-template-columns:1fr;
+    }
+
+    .featured{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ARDP News & Blog</h1>
+    <p>News, Commentary, and Updates from the American Resource Dividend Party</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+ 
+</nav>
+
+<section class="page-title">
+    <h2>Latest Articles</h2>
+    <p>
+        Stay informed with ARDP news, policy discussions,
+        community updates, and featured opinion pieces.
+    </p>
+</section>
+
+<div class="featured">
+    <h2>Featured Article</h2>
+    <p>
+        Explore our latest featured article and discover
+        new ideas about economic reform, transparency,
+        and America's future.
+    </p>
+</div>
+
+<div class="blog-grid">
+
+    <div class="blog-card">
+        <img src="votes do noy count.png" alt="Blog Article">
+        <div class="blog-content">
+            <div class="blog-date">June 2026</div>
+            <h3>Corruption, Lobbying, and the Fight for a Truly Representative Government</h3>
+            <p>
+                One of the most common frustrations Americans share today is the growing belief that ordinary citizens no longer have the same influence over government as wealthy donors.
+            </p>
+            <a href="Corruption, Lobbying, and the Fight for a Truly Representative Government.txt" class="read-more">Read Article</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="The Constitution and modern government.png" alt="Blog Article">
+        <div class="blog-content">
+            <div class="blog-date">June 2026</div>
+            <h3>The Constitution and Modern Government</h3>
+            <p>
+                A discussion on constitutional principles
+                and their place in today's America.
+            </p>
+            <a href="The Constitution and Modern Government.txt" class="read-more">Read Article</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="America's Resource Dividend.png" alt="Blog Article">
+        <div class="blog-content">
+            <div class="blog-date">June 2026</div>
+            <h3>America's Resource Dividend: How Public Ownership Could Benefit Every Citizen</h3>
+            <p>
+                Across the world, nations rich in natural resources face a simple question: Who should benefit from the wealth beneath the ground? Should profits from oil, natural gas, minerals, and other valuable resources primarily enrich private corporations, or should they be used to improve the lives of the citizens who collectively own the nation's natural wealth?
+            </p>
+            <a href="America's Resource Dividend How Public Ownership Could Benefit Every Citizen.txt" class="read-more">Read Article</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="Community spotlight.png" alt="Blog Article">
+        <div class="blog-content">
+            <div class="blog-date">June 2026</div>
+            <h3>Community Spotlight</h3>
+            <p>
+                Highlights, announcements, and updates
+                from supporters around the country.
+            </p>
+            <a href="Community Spotlight.txt" class="read-more">Read Article</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 American Resource Dividend Party</p>
+    <p>America's Resources. America's People.</p>
+</footer>
+
+</body>
+</html>
