@@ -1,308 +1,434 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Learn about the American Resource Dividend Party, our 10-point platform, and our vision for ensuring America's natural wealth benefits its people."
+  />
+  <meta name="theme-color" content="#0f172a" />
+
   <title>American Resource Dividend Party</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
-	  
-
-    body{
-      background:#0f172a;
-      color:white;
-      line-height:1.6;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    header{
-      background:linear-gradient(to right,#001f54,#b22234);
-      padding:60px 20px;
-      text-align:center;
-      border-bottom:5px solid gold;
-      position:relative;
-      overflow:hidden;
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
-    header::before{
-      content:'';
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.25);
+    body {
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
     }
 
-    header *{
-      position:relative;
-      z-index:2;
+    a {
+      color: inherit;
     }
 
-    .flag-logo{
-      width:220px;
-      max-width:90%;
-      border-radius:20px;
-      border:4px solid gold;
-      box-shadow:0 0 25px rgba(255,215,0,0.6);
-      margin-bottom:25px;
-      animation:glow 3s infinite alternate;
+    button {
+      font: inherit;
     }
 
-    @keyframes glow{
-      from{
-        box-shadow:0 0 15px rgba(255,215,0,0.4);
+    button:focus-visible,
+    a:focus-visible,
+    .card:focus-visible {
+      outline: 3px solid #ffd700;
+      outline-offset: 4px;
+    }
+
+    /* HEADER */
+
+    header {
+      background: linear-gradient(to right, #001f54, #b22234);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 5px solid gold;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .flag-logo {
+      width: 220px;
+      max-width: 90%;
+      border-radius: 20px;
+      border: 4px solid gold;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+      margin-bottom: 25px;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
       }
-      to{
-        box-shadow:0 0 35px rgba(255,215,0,0.9);
+      to {
+        box-shadow: 0 0 35px rgba(255, 215, 0, 0.9);
       }
     }
 
-    header h1{
-      font-size:3rem;
-      margin-bottom:10px;
-      text-transform:uppercase;
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
 
-    header p{
-      font-size:1.3rem;
-      color:#f1f1f1;
+    header p {
+      font-size: 1.3rem;
+      color: #f1f1f1;
     }
 
-    nav{
-      background:#111827;
-      padding:15px;
-      text-align:center;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      border-bottom:2px solid gold;
+    /* NAVIGATION */
+
+    nav {
+      background: #111827;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid gold;
     }
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin:0 15px;
-      font-weight:bold;
-      transition:0.3s;
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    nav a:hover{
-      color:gold;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 25px;
     }
 
-    section{
-      padding:60px 20px;
-      max-width:1100px;
-      margin:auto;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 4px;
+      transition: color 0.3s;
     }
 
-    .hero{
-      text-align:center;
+    nav a:hover {
+      color: gold;
     }
 
-    .hero h2{
-      font-size:2.5rem;
-      color:gold;
-      margin-bottom:20px;
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      color: white;
+      background: #1e293b;
+      border: 1px solid gold;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .hero p{
-      font-size:1.2rem;
-      max-width:850px;
-      margin:auto;
+    .menu-icon {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 20px;
     }
 
-    .quote{
-      margin-top:35px;
-      font-size:1.5rem;
-      color:gold;
-      font-style:italic;
+    .menu-icon span {
+      height: 2px;
+      width: 100%;
+      background: gold;
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
     }
 
-    .platform-title{
-      text-align:center;
-      color:gold;
-      font-size:2.5rem;
-      margin-bottom:40px;
+    .menu-toggle[aria-expanded="true"] .menu-icon span:first-child {
+      transform: translateY(7px) rotate(45deg);
     }
 
-    .platform-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
+    .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(2) {
+      opacity: 0;
     }
 
-    .card{
-      background:#1e293b;
-      padding:25px;
-      border-radius:18px;
-      border:2px solid rgba(255,255,255,0.08);
-      transition:0.3s;
-      box-shadow:0 0 10px rgba(0,0,0,0.3);
+    .menu-toggle[aria-expanded="true"] .menu-icon span:last-child {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: gold;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .quote {
+      margin-top: 35px;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: gold;
+      font-style: italic;
+    }
+
+    /* PLATFORM CARDS */
+
+    .platform-title {
+      text-align: center;
+      color: gold;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 15px;
+    }
+
+    .platform-intro {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      color: #cbd5e1;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 250px), 1fr)
+      );
+      gap: 25px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      transition:
+        transform 0.3s,
+        border-color 0.3s,
+        box-shadow 0.3s,
+        background 0.3s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       position: relative;
       overflow: hidden;
     }
 
     .card::before {
-      content: '';
+      content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 215, 0, 0.1);
+      inset: 0;
+      background: rgba(255, 215, 0, 0.07);
       opacity: 0;
       transition: opacity 0.3s;
-      z-index: -1;
+      pointer-events: none;
     }
 
-    .card:hover{
-      transform:translateY(-8px);
-      border-color:gold;
-      box-shadow:0 0 20px rgba(255,215,0,0.4);
+    .card:hover,
+    .card:focus-visible,
+    .card.expanded {
+      transform: translateY(-5px);
+      border-color: gold;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
     }
 
-    .card:hover::before {
+    .card:hover::before,
+    .card:focus-visible::before,
+    .card.expanded::before {
       opacity: 1;
     }
 
-    .card h3{
-      color:gold;
-      margin-bottom:12px;
+    .card h3,
+    .card p,
+    .card .card-hint {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h3 {
+      color: gold;
+      margin-bottom: 12px;
       transition: color 0.3s;
     }
 
-    .card:hover h3 {
+    .card:hover h3,
+    .card.expanded h3 {
       color: white;
     }
 
     .card p {
-      transition: transform 0.3s;
+      color: #e2e8f0;
     }
 
-    .card:hover p {
-      transform: translateX(5px);
+    .card-hint {
+      display: inline-block;
+      margin-top: 18px;
+      color: gold;
+      font-size: 0.85rem;
+      font-weight: bold;
     }
 
-    .mission{
-      background:#111827;
-      border-radius:25px;
-      padding:45px;
-      text-align:center;
-      margin-top:60px;
-      border:2px solid rgba(255,215,0,0.3);
+    .card-hint::after {
+      content: " +";
     }
 
-    .mission h2{
-      color:gold;
-      margin-bottom:20px;
-      font-size:2.3rem;
+    .card.expanded .card-hint::after {
+      content: " −";
     }
 
-    .cta{
-      text-align:center;
-      margin-top:70px;
+    .card-detail {
+      display: none;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 215, 0, 0.35);
+      font-size: 0.95rem;
     }
 
-    .cta button{
-      background:gold;
-      color:black;
-      border:none;
-      padding:16px 40px;
-      font-size:1rem;
-      border-radius:50px;
-      cursor:pointer;
-      font-weight:bold;
-      transition:0.3s;
+    .card.expanded .card-detail {
+      display: block;
+      animation: reveal 0.25s ease;
     }
 
-    .cta button:hover{
-      background:white;
-      transform:scale(1.05);
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    footer{
-      background:black;
-      text-align:center;
-      padding:35px;
-      margin-top:60px;
-      border-top:3px solid gold;
+    /* MISSION */
+
+    .mission {
+      background: #111827;
+      border-radius: 25px;
+      padding: 45px;
+      text-align: center;
+      margin-top: 60px;
+      border: 2px solid rgba(255, 215, 0, 0.3);
     }
 
-    footer p{
-      margin:5px 0;
+    .mission h2 {
+      color: gold;
+      margin-bottom: 20px;
+      font-size: 2.3rem;
     }
 
-    .banner{
-      width:100%;
-      border-radius:20px;
-      margin-top:35px;
-      border:3px solid gold;
-      box-shadow:0 0 20px rgba(255,215,0,0.3);
+    /* CONTACT */
+
+    .cta {
+      text-align: center;
+      margin-top: 60px;
     }
 
-    /* Comment form styles */
-    .comment-section {
-      max-width:600px;
-      margin:60px auto;
-      background:#1e1e1e;
-      padding:40px;
-      border-radius:20px;
+    .cta h2 {
+      color: gold;
+      margin-bottom: 15px;
     }
 
-    .comment-section h2 {
-      text-align:center;
-      color:gold;
-      margin-bottom:20px;
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 25px;
     }
 
-    .comment-section form {
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    .contact-box {
+      margin-top: 25px;
     }
 
-    .comment-section input,
-    .comment-section textarea {
-      padding:10px;
-      border-radius:6px;
-      border:none;
-      font-size:14px;
+    .email-button {
+      display: inline-block;
+      background: gold;
+      color: #111827;
+      text-decoration: none;
+      padding: 14px 32px;
+      font-size: 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      border: 2px solid gold;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.25);
+      transition:
+        background 0.3s,
+        color 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
     }
 
-    .comment-section button {
-      padding:12px;
-      background:gold;
-      color:black;
-      border:none;
-      border-radius:6px;
-      font-weight:bold;
-      cursor:pointer;
-      transition:0.3s;
+    .email-button:hover {
+      background: white;
+      border-color: white;
+      color: #001f54;
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
     }
 
-    .comment-section button:hover {
-      background:white;
-      transform:scale(1.02);
+    /* FOOTER */
+
+    footer {
+      background: black;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 60px;
+      border-top: 3px solid gold;
     }
 
-    .comment-status {
-      text-align:center;
-      color:#ff6666;
-      font-size:14px;
+    footer p {
+      margin: 8px auto;
+      max-width: 750px;
     }
 
-    /* Responsive styles */
+    .footer-tagline {
+      color: gold;
+      font-weight: bold;
+    }
+
+    /* RESPONSIVE NAVIGATION */
+
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
+      header {
+        padding: 40px 18px;
       }
 
       header p {
@@ -314,25 +440,82 @@
       }
 
       nav {
-        padding: 10px;
+        padding: 10px 15px;
+      }
+
+      .nav-inner {
+        display: block;
+      }
+
+      .menu-toggle {
+        display: flex;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding-top: 12px;
+      }
+
+      .nav-links.open {
+        display: flex;
       }
 
       nav a {
         display: block;
-        margin: 10px 0;
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      nav a:hover {
+        background: #1e293b;
+      }
+
+      section {
+        padding: 45px 18px;
       }
 
       .platform-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .card {
+        padding: 22px;
       }
 
       .mission {
-        padding: 25px;
+        padding: 25px 20px;
+        margin-top: 40px;
       }
 
-      .comment-section {
-        padding: 20px;
-        margin: 30px auto;
+      .mission h2 {
+        font-size: 2rem;
+      }
+
+      .cta {
+        margin-top: 45px;
+      }
+
+      footer {
+        padding: 30px 18px;
+      }
+    }
+
+    /* REDUCED MOTION ACCESSIBILITY */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -340,129 +523,383 @@
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
     <img
       src="ARDPflag.png"
-      alt="ARDP Flag Logo"
+      alt="American Resource Dividend Party flag logo"
       class="flag-logo"
-      loading="lazy"
+      width="220"
+      loading="eager"
     />
+
     <h1>American Resource Dividend Party</h1>
     <p>America’s Resources. America’s People.</p>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#platform">Platform</a>
-    <a href="#mission">Mission</a>
-    <a href="Future Article Title.html">ARDP News & Blog</a>
-    
+  <!-- NAVIGATION -->
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        <span class="menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>Menu</span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#platform">Platform</a>
+        <a href="#mission">Mission</a>
+        <a href="Future Article Title.html">ARDP News &amp; Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
   </nav>
 
-  <section class="hero" id="about">
-    <h2>Building a Future for All Americans</h2>
-    <p>
-      The American Resource Dividend Party believes America’s natural wealth 
-      should benefit every citizen. By responsibly managing national resources, 
-      we can provide healthcare, education, infrastructure, and economic security 
-      for the American people.
-    </p>
-    <div class="quote">
-      “America is rich. The people deserve a share.”
-    </div>
-    <img
-      src="ARDPflag.png"
-      alt="ARDP Flag"
-      class="banner"
-      loading="lazy"
-    />
-  </section>
+  <main>
 
-  <section id="platform">
-    <h2 class="platform-title">10 Point Platform</h2>
-    <div class="platform-grid">
-      <div class="card">
-        <h3>1. Resource Ownership</h3>
-        <p>America’s natural resources should benefit the people directly.</p>
+    <!-- ABOUT -->
+
+    <section class="hero" id="about">
+      <h2>Building a Future for All Americans</h2>
+
+      <p>
+        The American Resource Dividend Party believes America’s natural
+        wealth should benefit every citizen. By responsibly managing
+        national resources, we can provide healthcare, education,
+        infrastructure, and economic security for the American people.
+      </p>
+
+      <div class="quote">
+        “America is rich. The people deserve a share.”
       </div>
-      <div class="card">
-        <h3>2. Basic Income</h3>
-        <p>Create a national dividend funded through resource profits.</p>
+
+      <img
+        src="ARDPflag.png"
+        alt="American Resource Dividend Party flag"
+        class="banner"
+        loading="lazy"
+        style="
+          width: 100%;
+          border-radius: 20px;
+          margin-top: 35px;
+          border: 3px solid gold;
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        "
+      />
+    </section>
+
+    <!-- PLATFORM -->
+
+    <section id="platform">
+      <h2 class="platform-title">10 Point Platform</h2>
+
+      <p class="platform-intro">
+        Explore our platform and learn more about the principles
+        guiding the American Resource Dividend Party.
+        Select any card to read more.
+      </p>
+
+      <div class="platform-grid">
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-1"
+        >
+          <h3>1. Resource Ownership</h3>
+          <p>America’s natural resources should benefit the people directly.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-1" hidden>
+            We support public-interest management of national natural
+            resources, with transparent oversight and policies designed
+            to ensure the public shares in the wealth those resources create.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-2"
+        >
+          <h3>2. Basic Income</h3>
+          <p>Create a national dividend funded through resource profits.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-2" hidden>
+            Develop a public resource dividend that distributes a share
+            of eligible resource revenues to Americans, subject to
+            sustainable funding and transparent financial reporting.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-3"
+        >
+          <h3>3. Universal Healthcare</h3>
+          <p>Guarantee healthcare access for all Americans.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-3" hidden>
+            Work toward a healthcare system that makes essential medical
+            services accessible and affordable, reducing the financial
+            burden of illness on individuals and families.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-4"
+        >
+          <h3>4. Free Education</h3>
+          <p>Tuition-free colleges, trade schools, and public education support.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-4" hidden>
+            Expand access to public education, vocational training,
+            apprenticeships, and higher education so financial hardship
+            does not prevent people from building valuable skills.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-5"
+        >
+          <h3>5. Fair Economy</h3>
+          <p>Strengthen workers, families, and small businesses nationwide.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-5" hidden>
+            Support fair wages, strong local businesses, worker protections,
+            and economic opportunities that allow families to build
+            stable and productive lives.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-6"
+        >
+          <h3>6. Energy Independence</h3>
+          <p>Invest in domestic energy and renewable innovation.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-6" hidden>
+            Encourage reliable domestic energy production, renewable
+            technologies, research, and infrastructure while balancing
+            affordability, environmental responsibility, and energy security.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-7"
+        >
+          <h3>7. Anti-Corruption</h3>
+          <p>Remove corporate influence from public resource management.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-7" hidden>
+            Strengthen conflict-of-interest rules, public disclosure,
+            independent audits, and accountability measures to help
+            ensure resource decisions serve the public interest.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-8"
+        >
+          <h3>8. Housing Support</h3>
+          <p>Expand affordable housing and stronger communities.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-8" hidden>
+            Promote affordable housing, responsible community development,
+            and policies that help individuals and families access safe,
+            stable places to live.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-9"
+        >
+          <h3>9. Infrastructure</h3>
+          <p>Modernize roads, utilities, internet, and transportation systems.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-9" hidden>
+            Invest in dependable public infrastructure, including
+            transportation, water systems, utilities, and broadband,
+            to strengthen communities and support long-term economic growth.
+          </p>
+        </article>
+
+        <article
+          class="card"
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="detail-10"
+        >
+          <h3>10. Transparency</h3>
+          <p>Ensure public accountability and open financial reporting.</p>
+          <span class="card-hint">Learn more</span>
+          <p class="card-detail" id="detail-10" hidden>
+            Publish clear financial reports, disclose how resource revenues
+            are collected and spent, and establish meaningful oversight
+            so the public can evaluate government performance.
+          </p>
+        </article>
+
       </div>
-      <div class="card">
-        <h3>3. Universal Healthcare</h3>
-        <p>Guarantee healthcare access for all Americans.</p>
-      </div>
-      <div class="card">
-        <h3>4. Free Education</h3>
-        <p>Tuition-free colleges, trade schools, and public education support.</p>
-      </div>
-      <div class="card">
-        <h3>5. Fair Economy</h3>
-        <p>Strengthen workers, families, and small businesses nationwide.</p>
-      </div>
-      <div class="card">
-        <h3>6. Energy Independence</h3>
-        <p>Invest in domestic energy and renewable innovation.</p>
-      </div>
-      <div class="card">
-        <h3>7. Anti-Corruption</h3>
-        <p>Remove corporate influence from public resource management.</p>
-      </div>
-      <div class="card">
-        <h3>8. Housing Support</h3>
-        <p>Expand affordable housing and stronger communities.</p>
-      </div>
-      <div class="card">
-        <h3>9. Infrastructure</h3>
-        <p>Modernize roads, utilities, internet, and transportation systems.</p>
-      </div>
-      <div class="card">
-        <h3>10. Transparency</h3>
-        <p>Ensure public accountability and open financial reporting.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="mission" id="mission">
-    <h2>Our Mission</h2>
-    <p>
-      We believe America’s natural wealth belongs to the people. 
-      Our mission is to transform resource profits into opportunity, 
-      stability, healthcare, education, and prosperity for every citizen.
-    </p>
-  </section>
+    <!-- MISSION -->
 
+    <section class="mission" id="mission">
+      <h2>Our Mission</h2>
 
+      <p>
+        We believe America’s natural wealth belongs to the people.
+        Our mission is to transform resource profits into opportunity,
+        stability, healthcare, education, and prosperity for every citizen.
+      </p>
+    </section>
 
+    <!-- CONTACT -->
 
+    <section class="cta" id="contact">
+      <h2>Get Involved</h2>
 
+      <p>
+        Interested in joining our community, volunteering, contributing
+        ideas, or helping support the growth of our movement?
+        We'd love to hear from you.
+      </p>
 
-
-
-
-  
-  <footer>
-    <p>
-        Interested in joining our community, volunteering,
-        contributing ideas, or helping support the growth
-        of our movement?
-    </p>
-
-    <p>
-        We'd love to hear from you. Click the button below
-        to send us an email.
-    </p>
-
-    <div class="contact-box">
-        <a href="mailto:noorwalker9@gmail.com?subject=Community Inquiry"
-           class="email-button">
-           Contact Us
+      <div class="contact-box">
+        <a
+          href="mailto:noorwalker9@gmail.com?subject=Community%20Inquiry"
+          class="email-button"
+        >
+          Contact Us
         </a>
-	<p>© 2026 American Resource Dividend Party</p>
-    <p>America’s Resources. America’s People.</p>
+      </div>
+    </section>
 
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 American Resource Dividend Party</p>
+    <p class="footer-tagline">America’s Resources. America’s People.</p>
   </footer>
+
+  <!-- INTERACTIVITY -->
+
+  <script>
+    // Mobile navigation toggle
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // Close the mobile menu after selecting a navigation link
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close the menu with the Escape key
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    // Interactive platform cards
+
+    const cards = document.querySelectorAll(".card");
+
+    function toggleCard(card) {
+      const detail = card.querySelector(".card-detail");
+      const isExpanded = card.getAttribute("aria-expanded") === "true";
+
+      card.setAttribute("aria-expanded", String(!isExpanded));
+      card.classList.toggle("expanded", !isExpanded);
+      detail.hidden = isExpanded;
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener("click", function (event) {
+        // Prevent nested future links or buttons from toggling the card.
+        if (event.target.closest("a, button")) {
+          return;
+        }
+
+        toggleCard(card);
+      });
+
+      // Support Enter and Space for keyboard users.
+
+      card.addEventListener("keydown", function (event) {
+        if (event.target !== card) {
+          return;
+        }
+
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleCard(card);
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
